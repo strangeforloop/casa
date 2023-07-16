@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :feature_flags, only: %i[index] do
+  end
   devise_for :all_casa_admins, path: "all_casa_admins", controllers: {sessions: "all_casa_admins/sessions"}
   devise_for :users, controllers: {sessions: "users/sessions", passwords: "users/passwords"}
 
@@ -60,6 +62,8 @@ Rails.application.routes.draw do
       patch :change_to_supervisor
     end
   end
+
+  # resources :dashboard, only %[index show]
 
   resources :case_contacts, except: %i[show] do
     member do

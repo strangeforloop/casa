@@ -65,6 +65,11 @@ class CasaAdminsController < ApplicationController
     end
   end
 
+  def dashboard
+    authorize CasaAdmin
+    @admins = policy_scope(current_organization.casa_admins)
+  end
+
   def activate
     authorize @casa_admin
 

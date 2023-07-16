@@ -60,6 +60,12 @@
               Admins
             <% end %>
           </li>
+          <li class="<%= active_class(casa_admins_path) %> nav-item">
+            <%= link_to casa_admins_path do %>
+              <i class="lni lni-star-filled mr-10"></i>
+              Admin Dashboard
+            <% end %>
+          </li>
         <% end %>
         <% if all_casa_admin_signed_in? %>
           <li class="<%= active_class(all_casa_admins_patch_notes_path) %> nav-item">
