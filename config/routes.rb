@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :feature_flags, only: %i[index] do
-  end
   devise_for :all_casa_admins, path: "all_casa_admins", controllers: {sessions: "all_casa_admins/sessions"}
   devise_for :users, controllers: {sessions: "users/sessions", passwords: "users/passwords"}
 
@@ -145,6 +143,8 @@ Rails.application.routes.draw do
   resources :case_court_orders, only: %i[destroy]
 
   namespace :all_casa_admins do
+    resources :feature_flags, only: %i[index] do
+    end
     resources :casa_orgs, only: [:new, :create, :show] do
       resources :casa_admins, only: [:new, :create, :edit, :update] do
         member do
