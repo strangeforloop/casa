@@ -1,2 +1,16 @@
 <h1>FeatureFlags#index</h1>
 <p>Find me in app/views/all_casa_admins/feature_flags/index.html.erb</p>
+
+<% @feature_flags.each do |feature_flag| %>
+    <%= form_for feature_flag, url: all_casa_admins_feature_flags_path do |form| %>
+      Form Contents
+      
+      <!-- checkbox and submit w/ tests. submit request -->
+      <!-- write another controller action. to handle changing feature -->
+      <!-- localhost:3000/feature_flag/id/<some-action> <some-action> i.e. update -->
+      <!-- look at volunteers controller for the form submit and follow that as example -->
+    <% end %>
+    <%# debugger %>
+<% end %>
+
+<p>thing 2</p>
